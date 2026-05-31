@@ -803,6 +803,30 @@
       gap: 1rem;
     }
 
+    /* Mobile : 1 colonne + layout horizontal dans chaque carte */
+    @media (max-width: 600px) {
+      .trust-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .trust-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+      }
+      .trust-card-icon {
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 0;
+      }
+      .trust-card h4 { font-size: .95rem; margin-bottom: .2rem; }
+      .trust-card p  { font-size: .82rem; }
+      /* Garantie décennale : pleine largeur mais flex colonne sur mobile */
+      .trust-card--decennale { grid-column: span 1 !important; flex-direction: column; }
+      .trust-card--decennale .trust-card-icon { margin-bottom: .5rem; }
+    }
+
     .trust-card {
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.09);
@@ -1728,7 +1752,7 @@
           </div>
 
           <!-- Badge Garantie Décennale -->
-          <div class="trust-card fade-up" style="grid-column:span 2;background:rgba(58,123,213,.08);border-color:rgba(58,123,213,.25);">
+          <div class="trust-card trust-card--decennale fade-up" style="grid-column:span 2;background:rgba(58,123,213,.08);border-color:rgba(58,123,213,.25);">
             <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
               <div class="trust-card-icon" style="flex-shrink:0;background:rgba(58,123,213,.15);">
                 <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:#8db8f5"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
