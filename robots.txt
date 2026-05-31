@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fauxseal3.github.io/khiat-plombier-clichy/sitemap.xml
