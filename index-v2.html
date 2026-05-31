@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO – Step 3: head/SEO -->
+  <title>Khiat Plombier Chauffagiste Clichy – Dépannage 7j/7</title>
+  <meta name="description" content="Khiat Plombier Chauffagiste à Clichy (92110). Plomberie, chauffage, dépannage urgent, réducteur de pression. Disponible 7j/7 de 9h à 19h. Devis gratuit. Appelez le 06 01 73 36 91." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Khiat Plombier Chauffagiste Clichy" />
+  <meta property="og:description" content="Artisan plombier-chauffagiste professionnel à Clichy. Réactif, honnête, 7j/7. Devis gratuit." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts – Step 4 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Step 4 : CSS custom properties ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Palette Plomberie/Chauffage (skill table) */
+      --primary:       #1c3a6e;
+      --primary-dark:  #112249;
+      --primary-mid:   #1e4080;
+      --accent:        #3a7bd5;
+      --accent-light:  #5b96e8;
+      --accent-pale:   #eaf1fc;
+
+      --white:    #ffffff;
+      --off-white:#f4f7fc;
+      --gray-50:  #eef2f9;
+      --gray-100: #d8e2f0;
+      --gray-400: #8898b4;
+      --gray-600: #4a5f82;
+      --gray-800: #1e2d47;
+      --text:     #1e2d47;
+
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --shadow-sm:  0 2px 8px rgba(28,58,110,.08);
+      --shadow-md:  0 6px 24px rgba(28,58,110,.14);
+
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--font-body); color: var(--text); background: var(--off-white); overflow-x: hidden; line-height: 1.6; }
+    img   { display: block; max-width: 100%; }
+    a     { color: inherit; text-decoration: none; }
+    .container { width: min(90%, 1100px); margin-inline: auto; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: .45rem; padding: .65rem 1.4rem; border-radius: 50px; font-family: var(--font-body); font-size: .9rem; font-weight: 600; cursor: pointer; border: none; white-space: nowrap; transition: background var(--transition), transform var(--transition), box-shadow var(--transition); }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .btn-accent  { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(58,123,213,.35); }
+    .btn-accent:hover  { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.55); }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+    .btn-white   { background: #fff; color: var(--primary); box-shadow: var(--shadow-md); }
+    .btn-white:hover   { background: var(--accent-pale); transform: translateY(-2px); }
+
+    /* Section labels / titles */
+    .section-label { display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 900; color: var(--primary); line-height: 1.15; }
+    .section-title span { color: var(--accent); }
+    .section-intro { font-size: 1.05rem; color: var(--gray-600); max-width: 56ch; margin-top: .75rem; }
+
+    /* Scroll animation */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
+    .fade-up:nth-child(5) { transition-delay: .4s; }
+    .fade-up:nth-child(6) { transition-delay: .5s; }
+
+    /* ── STICKY HEADER – Step 3 ──────────────────────────────────────── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--primary-dark); box-shadow: 0 2px 20px rgba(0,0,0,.3); border-bottom: 1px solid rgba(58,123,213,.2); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .65rem; }
+
+    /* Logo – Step 6: white circle */
+    .header-logo { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+    .header-logo-img { width: 54px; height: 54px; border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; flex-shrink: 0; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
+    .logo-text strong { display: block; font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: #fff; }
+    .logo-text span   { font-size: .72rem; color: rgba(255,255,255,.6); letter-spacing: .05em; }
+
+    .header-nav { display: flex; align-items: center; gap: 1.75rem; }
+    .header-nav a { color: rgba(255,255,255,.75); font-size: .9rem; font-weight: 500; transition: color var(--transition); position: relative; padding-bottom: 2px; }
+    .header-nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent-light); transition: width var(--transition); }
+    .header-nav a:hover { color: #fff; }
+    .header-nav a:hover::after { width: 100%; }
+
+    .header-phone { display: flex; align-items: center; gap: .5rem; background: var(--accent); color: #fff; font-weight: 700; font-size: .88rem; padding: .55rem 1.1rem; border-radius: 50px; transition: background var(--transition), transform var(--transition); white-space: nowrap; }
+    .header-phone:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .header-phone svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+    /* ── HERO – Step 3 ───────────────────────────────────────────────── */
+    .hero { position: relative; background: linear-gradient(150deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-mid) 100%); overflow: hidden; padding-block: clamp(4rem, 10vw, 7rem); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 85% 50%, rgba(58,123,213,.15) 0%, transparent 65%), radial-gradient(ellipse 40% 60% at 5% 90%, rgba(58,123,213,.1) 0%, transparent 55%); pointer-events: none; }
+    .hero::after  { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent)); }
+
+    .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 3.5rem; align-items: center; }
+
+    /* Animated badge */
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(58,123,213,.18); border: 1px solid rgba(58,123,213,.35); color: #8db8f5; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1.5rem; }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; background: #8db8f5; border-radius: 50%; animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.65); } }
+
+    .hero h1 { font-family: var(--font-head); font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.08; margin-bottom: 1.25rem; }
+    .hero h1 em { font-style: normal; color: #8db8f5; display: block; }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.12rem); color: rgba(255,255,255,.72); max-width: 50ch; margin-bottom: 2rem; line-height: 1.75; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-bottom: 3rem; }
+    .hero-actions .btn { font-size: 1rem; padding: .85rem 1.75rem; }
+
+    /* 3 trust stats */
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .hero-stat strong { display: block; font-family: var(--font-head); font-size: 1.9rem; font-weight: 900; color: #8db8f5; line-height: 1; }
+    .hero-stat span   { font-size: .78rem; color: rgba(255,255,255,.5); letter-spacing: .05em; text-transform: uppercase; }
+
+    /* Logo large flottant – Step 6: 180-220px, white bg, float animation */
+    .hero-logo-block { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; flex-shrink: 0; }
+    .hero-logo-wrap  { width: 210px; height: 210px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; padding: 15px; box-shadow: 0 0 0 8px rgba(255,255,255,.08), 0 0 0 16px rgba(255,255,255,.04), 0 24px 60px rgba(0,0,0,.35); animation: logo-float 4s ease-in-out infinite; }
+    .hero-logo-wrap img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+    @keyframes logo-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .hero-logo-tag { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius-md); padding: .85rem 1.25rem; text-align: center; width: 210px; }
+    .hero-logo-tag .tag-phone { display: block; font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: #8db8f5; margin-bottom: .25rem; }
+    .hero-logo-tag .tag-hours { font-size: .78rem; color: rgba(255,255,255,.5); }
+
+    /* ── SERVICES – Step 3 ───────────────────────────────────────────── */
+    .services { padding-block: clamp(4rem, 8vw, 6rem); background: var(--off-white); }
+    .services-header { text-align: center; margin-bottom: 3rem; }
+
+    /* 6 cards, grid auto-fill minmax(280px,1fr) */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+    .service-card { background: #fff; border: 1px solid var(--gray-100); border-radius: var(--radius-md); padding: 1.75rem; position: relative; overflow: hidden; transition: transform var(--transition), box-shadow var(--transition); }
+    /* Hover: card lifts + accent bar slides in */
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--accent), var(--primary)); transform: scaleY(0); transform-origin: top; transition: transform var(--transition); }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-icon { width: 52px; height: 52px; background: var(--gray-50); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; transition: background var(--transition); }
+    .service-card:hover .service-icon { background: var(--primary); }
+    .service-icon svg { width: 26px; height: 26px; fill: var(--primary); transition: fill var(--transition); }
+    .service-card:hover .service-icon svg { fill: #fff; }
+    .service-card h3 { font-family: var(--font-head); font-size: 1.15rem; color: var(--primary); margin-bottom: .5rem; }
+    .service-card p  { font-size: .9rem; color: var(--gray-600); line-height: 1.65; }
+
+    /* ── WHY US – Step 3 (dark bg) ───────────────────────────────────── */
+    .why-us { padding-block: clamp(4rem, 8vw, 6rem); background: var(--primary-dark); position: relative; overflow: hidden; }
+    .why-us::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(58,123,213,.12) 0%, transparent 65%); pointer-events: none; }
+    .why-us-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    /* Left: heading + text + CTA */
+    .why-us-text .section-label { color: #8db8f5; }
+    .why-us-text .section-title { color: #fff; }
+    .why-us-text .section-title span { color: #8db8f5; }
+    .why-us-text .section-intro { color: rgba(255,255,255,.6); margin-bottom: 2rem; }
+    /* Right: 4 trust badges 2×2 */
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .trust-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); border-radius: var(--radius-md); padding: 1.5rem; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+    .trust-card:hover { background: rgba(58,123,213,.12); border-color: rgba(58,123,213,.3); transform: translateY(-3px); }
+    .trust-card-icon { width: 46px; height: 46px; background: rgba(58,123,213,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: .85rem; }
+    .trust-card-icon svg { width: 23px; height: 23px; fill: #8db8f5; }
+    .trust-card h4 { font-family: var(--font-head); font-size: 1.05rem; color: #fff; margin-bottom: .35rem; }
+    .trust-card p  { font-size: .83rem; color: rgba(255,255,255,.5); line-height: 1.55; }
+
+    /* ── REVIEWS – Step 3 ────────────────────────────────────────────── */
+    .reviews { padding-block: clamp(4rem, 8vw, 6rem); background: #fff; }
+    .reviews-header { text-align: center; margin-bottom: 3rem; }
+    .reviews-meta { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 1rem; flex-wrap: wrap; }
+    .stars { color: #f4a01c; font-size: 1.2rem; letter-spacing: .06em; }
+    .stars-label { font-size: .9rem; color: var(--gray-600); }
+
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+    /* Card links to Google Maps – Step 3 reviews */
+    .review-card-link { display: block; text-decoration: none; color: inherit; }
+    .review-card { background: var(--off-white); border: 1px solid var(--gray-100); border-radius: var(--radius-md); padding: 1.75rem; position: relative; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+    .review-card-link:hover .review-card { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #dadce0; }
+    .review-card::before { content: '\201C'; position: absolute; top: .75rem; right: 1.25rem; font-family: var(--font-head); font-size: 5rem; color: var(--gray-100); line-height: 1; pointer-events: none; }
+    .review-stars  { margin-bottom: .85rem; color: #f4a01c; font-size: 1rem; }
+    /* italic quote – Step 3 */
+    .review-text   { font-size: .95rem; color: var(--gray-800); line-height: 1.72; font-style: italic; margin-bottom: 1.25rem; }
+    .review-author { display: flex; align-items: center; gap: .75rem; padding-top: 1rem; border-top: 1px solid var(--gray-100); }
+    /* avatar (initial) – Step 3 */
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .review-info strong { display: block; font-size: .9rem; font-weight: 600; color: var(--primary); }
+    .review-info span   { font-size: .78rem; color: var(--gray-400); }
+    .review-badge { display: inline-flex; align-items: center; gap: .25rem; background: #e1eaf8; color: var(--primary); font-size: .7rem; font-weight: 600; padding: .15rem .5rem; border-radius: 50px; margin-top: .2rem; }
+
+    /* "Voir sur Google" + "Laisser un avis" buttons – Step 3 */
+    .reviews-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn-google { display: inline-flex; align-items: center; gap: .6rem; padding: .7rem 1.4rem; background: #fff; border: 1.5px solid #dadce0; border-radius: 50px; font-family: var(--font-body); font-size: .9rem; font-weight: 600; color: #3c4043; cursor: pointer; transition: box-shadow var(--transition), transform var(--transition); }
+    .btn-google:hover { box-shadow: 0 2px 12px rgba(0,0,0,.15); transform: translateY(-2px); }
+    .btn-leave-review { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.4rem; background: var(--primary); color: #fff; border-radius: 50px; font-family: var(--font-body); font-size: .9rem; font-weight: 600; cursor: pointer; transition: background var(--transition), transform var(--transition); }
+    .btn-leave-review:hover { background: var(--accent); transform: translateY(-2px); }
+
+    /* ── CONTACT – Step 3 ────────────────────────────────────────────── */
+    .contact { padding-block: clamp(4rem, 8vw, 6rem); background: var(--gray-50); }
+    .contact-header { text-align: center; margin-bottom: 3rem; }
+    .contact-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .contact-info   { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-phone-box { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: var(--radius-md); padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+    .contact-phone-box::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(58,123,213,.2) 0%, transparent 70%); pointer-events: none; }
+    .contact-phone-box p { font-size: .8rem; color: rgba(255,255,255,.55); margin-bottom: .4rem; letter-spacing: .08em; text-transform: uppercase; }
+    /* Large clickable phone – Step 3 */
+    .contact-phone-link { display: block; font-family: var(--font-head); font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 900; color: #8db8f5; letter-spacing: .02em; transition: color var(--transition); margin-bottom: 1.25rem; }
+    .contact-phone-link:hover { color: #fff; }
+
+    .info-block { background: #fff; border: 1px solid var(--gray-100); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm); }
+    .info-block h3 { font-family: var(--font-head); font-size: 1rem; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+    .info-block h3 svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+
+    /* Hours table – Step 3 (mark closed in red) */
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table td { padding: .4rem 0; font-size: .88rem; color: var(--gray-600); border-bottom: 1px solid var(--gray-50); }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table td:first-child { font-weight: 600; color: var(--primary); }
+    .hours-table td:last-child { text-align: right; color: var(--accent); font-weight: 600; }
+    .hours-table .closed { color: #dc2626 !important; }
+
+    .address-text { font-size: .9rem; color: var(--gray-600); line-height: 1.7; }
+
+    /* Google Maps iframe – Step 3: border matching primary, min-height 400px */
+    .map-wrapper { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); height: 100%; min-height: 440px; border: 3px solid var(--primary); }
+    .map-wrapper iframe { width: 100%; height: 100%; min-height: 440px; border: none; display: block; }
+
+    /* ── FOOTER – Step 3 ─────────────────────────────────────────────── */
+    .site-footer { background: var(--primary-dark); padding-block: 2.5rem; border-top: 3px solid var(--accent); }
+    .footer-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem; }
+    /* Logo – Step 6: 60-80px circle */
+    .footer-logo-wrap { width: 70px; height: 70px; border-radius: 50%; background: #fff; padding: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .footer-logo-wrap img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+    .footer-brand-text strong { display: block; font-family: var(--font-head); font-size: 1.05rem; color: #fff; margin-bottom: .2rem; }
+    .footer-brand-text span   { font-size: .8rem; color: rgba(255,255,255,.5); }
+    .footer-links { display: flex; flex-direction: column; gap: .4rem; text-align: right; }
+    .footer-links a, .footer-links span { font-size: .83rem; color: rgba(255,255,255,.5); transition: color var(--transition); }
+    .footer-links a:hover { color: #8db8f5; }
+    /* Copyright – Step 3: <span id="year"> with JS */
+    .footer-bottom { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.07); text-align: center; font-size: .78rem; color: rgba(255,255,255,.25); }
+
+    /* ── MOBILE FAB – Step 4 ─────────────────────────────────────────── */
+    /* display:none by default, display:flex at 700px */
+    .fab-phone { display: none; position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 200; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); box-shadow: 0 6px 24px rgba(28,58,110,.5); align-items: center; justify-content: center; animation: fab-bounce 2.5s ease infinite; }
+    .fab-phone svg { width: 26px; height: 26px; fill: #fff; }
+    @keyframes fab-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    /* ── RESPONSIVE – Step 4 ─────────────────────────────────────────── */
+    /* 900px: stack hero */
+    @media (max-width: 900px) {
+      .hero-grid   { grid-template-columns: 1fr; }
+      .hero-logo-block { flex-direction: row; justify-content: flex-start; }
+      .hero-logo-wrap  { width: 130px; height: 130px; }
+      .hero-logo-tag   { width: auto; text-align: left; }
+      .why-us-inner    { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid    { grid-template-columns: 1fr; }
+      .map-wrapper     { min-height: 320px; }
+      .map-wrapper iframe { min-height: 320px; }
+      .footer-inner    { grid-template-columns: auto 1fr; }
+      .footer-links    { display: none; }
+    }
+    /* 700px: hide nav, show FAB */
+    @media (max-width: 700px) {
+      .header-nav   { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid  { grid-template-columns: 1fr; }
+      .trust-grid    { grid-template-columns: 1fr; }
+      .fab-phone     { display: flex; }
+      .footer-inner  { grid-template-columns: 1fr; }
+      .hero-logo-block { display: none; }
+    }
+    /* 480px: stack CTAs */
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats   { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════ STICKY HEADER ════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="#hero" class="header-logo" aria-label="Plomberie Khiat – Accueil">
+        <!-- Logo – Step 6: img in white circle -->
+        <img src="logo.png" alt="Logo Plomberie Khiat – À votre service" class="header-logo-img" width="54" height="54" />
+        <div class="logo-text">
+          <strong>Plomberie Khiat</strong>
+          <span>Chauffagiste · Clichy 92</span>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#why-us">Pourquoi nous</a>
+        <a href="#reviews">Avis clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="tel:+33601733691" class="header-phone" aria-label="Appeler Plomberie Khiat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+        06 01 73 36 91
+      </a>
+
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════ HERO ══════════════════ -->
+<section class="hero" id="hero" aria-label="Présentation">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-content">
+        <!-- Animated badge -->
+        <div class="hero-badge">Disponible 7j/7 · Clichy &amp; alentours</div>
+
+        <!-- h1: trade + city | em for city -->
+        <h1>
+          Plombier &amp; Chauffagiste
+          <em>à Clichy</em>
+        </h1>
+
+        <p class="hero-sub">
+          Khiat Plombier Chauffagiste intervient rapidement pour tous vos travaux de plomberie et chauffage. Artisan honnête, tarifs justes, travail irréprochable — à votre service.
+        </p>
+
+        <!-- 2 CTA buttons -->
+        <div class="hero-actions">
+          <a href="tel:+33601733691" class="btn btn-white" aria-label="Appeler maintenant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Appelez maintenant
+          </a>
+          <a href="#services" class="btn btn-outline">Nos services</a>
+        </div>
+
+        <!-- 3 trust stats -->
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>7j/7</strong>
+            <span>Disponibilité</span>
+          </div>
+          <div class="hero-stat">
+            <strong>5★</strong>
+            <span>Note Google</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Devis gratuit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo large flottant – Step 6: 210px, white bg, float animation -->
+      <div class="hero-logo-block">
+        <div class="hero-logo-wrap">
+          <img src="logo.png" alt="Plomberie Khiat – À votre service" width="210" height="210" />
+        </div>
+        <div class="hero-logo-tag">
+          <a href="tel:+33601733691" class="tag-phone" aria-label="Appeler">+33 6 01 73 36 91</a>
+          <span class="tag-hours">Lun–Dim · 09h00 – 19h00</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ SERVICES ══════════════════ -->
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="container">
+
+    <div class="services-header">
+      <span class="section-label">Ce que nous faisons</span>
+      <h2 class="section-title" id="services-title">Nos <span>prestations</span></h2>
+      <p class="section-intro" style="margin-inline: auto;">De la fuite d'eau à l'installation complète d'un système de chauffage, nous intervenons avec soin et professionnalisme.</p>
+    </div>
+
+    <!-- 6 cards – SVG icon + title + description -->
+    <div class="services-grid">
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5zm-6 8h1.5v1.5H13V13zm1.5 1.5H16V16h-1.5v-1.5zM16 13h1.5v1.5H16V13zm-3 3h1.5v1.5H13V16zm1.5 1.5H16V19h-1.5v-1.5zM16 16h1.5v1.5H16V16zm1.5-1.5H19V16h-1.5v-1.5zm0 3H19V19h-1.5v-1.5zM22 7h-2V4h-3V2h-2v2h-3v3H9V4H7V2H5v2H2v3H0v2h2v3h2v-3h3v3h2V7h3V4h3v3h3v3h2V9h2V7z"/></svg>
+        </div>
+        <h3>Plomberie générale</h3>
+        <p>Réparation de fuites, remplacement de robinetterie, pose de tuyauterie, débouchage de canalisations. Interventions soignées et durables.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+        </div>
+        <h3>Chauffage &amp; chaudière</h3>
+        <p>Installation, entretien et dépannage de chaudières gaz et fioul, radiateurs, plancher chauffant. Mise aux normes et optimisation énergétique.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"/></svg>
+        </div>
+        <h3>Réducteur de pression</h3>
+        <p>Diagnostic, fourniture et pose de réducteurs de pression de haute qualité. Installation propre et durable pour protéger votre installation.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+        </div>
+        <h3>Dépannage urgent</h3>
+        <p>Fuite, panne de chaudière, problème d'eau chaude ? Intervention rapide 7 jours sur 7 pour rétablir votre confort en toute priorité.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6v-4zm6-6h4v3h-4V7zm-6 0h5v5H6V7zm6 4h4v6h-4v-6z"/></svg>
+        </div>
+        <h3>Installation sanitaire</h3>
+        <p>Pose et raccordement de baignoires, douches, WC, lavabos, évier de cuisine. Rénovation complète de salle de bain selon vos besoins.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
+        <h3>Devis gratuit</h3>
+        <p>Estimation claire et transparente, sans surprise. Prix communiqué avant toute intervention pour une totale sérénité.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ WHY US ══════════════════ -->
+<section class="why-us" id="why-us" aria-labelledby="why-title">
+  <div class="container">
+    <div class="why-us-inner">
+
+      <!-- Left: heading + text + CTA -->
+      <div class="why-us-text">
+        <span class="section-label">Pourquoi nous choisir</span>
+        <h2 class="section-title" id="why-title">Un artisan de <span>confiance</span></h2>
+        <p class="section-intro">Plomberie Khiat, c'est l'assurance d'un travail bien fait, au bon prix, par quelqu'un de fiable, ponctuel et sympathique — à votre service 7 jours sur 7.</p>
+        <a href="tel:+33601733691" class="btn btn-white" style="margin-top:1.5rem;">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+          Demander un devis gratuit
+        </a>
+      </div>
+
+      <!-- Right: 4 trust badges 2×2 -->
+      <div class="trust-grid">
+
+        <div class="trust-card fade-up">
+          <div class="trust-card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+          </div>
+          <h4>Réactif</h4>
+          <p>Intervention rapide dès votre appel, même pour les urgences. Votre temps compte.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="trust-card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+          </div>
+          <h4>Devis rapide</h4>
+          <p>Estimation transmise rapidement, claire et sans engagement. Aucune mauvaise surprise.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="trust-card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          </div>
+          <h4>Tarif juste</h4>
+          <p>Prix honnêtes et transparents. Le bon rapport qualité-prix que vous méritez.</p>
+        </div>
+
+        <div class="trust-card fade-up">
+          <div class="trust-card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <h4>Disponible 7j/7</h4>
+          <p>De 09h à 19h, du lundi au dimanche. Toujours là quand vous avez besoin.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ REVIEWS ═══════════════════ -->
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+
+    <div class="reviews-header">
+      <span class="section-label">Témoignages clients</span>
+      <h2 class="section-title" id="reviews-title">Ils nous font <span>confiance</span></h2>
+      <div class="reviews-meta">
+        <span class="stars" aria-label="Note 5 sur 5">★★★★★</span>
+        <span class="stars-label">5/5 · Avis vérifiés Google</span>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+
+      <!-- Verbatim – Step 3, card links to Google Maps -->
+      <a class="review-card-link fade-up"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis d'Arthur sur Google Maps">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <!-- italic quote – verbatim -->
+          <p class="review-text">« Professionnel réactif, travail nickel, au juste prix. Je recommande vivement. »</p>
+          <div class="review-author">
+            <!-- avatar (initial) -->
+            <div class="review-avatar" aria-hidden="true">A</div>
+            <div class="review-info">
+              <strong>Arthur</strong>
+              <span>64 avis</span>
+              <span class="review-badge">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Guide local
+              </span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a class="review-card-link fade-up"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis d'Anne-Laure sur Google Maps">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">« Une personne agréable et toujours disponible rapidement. Professionnel, clair et ponctuel. Après plusieurs interventions au sein de mon appartement tout fonctionne parfaitement bien. À recommander ! »</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">A</div>
+            <div class="review-info">
+              <strong>Anne-Laure Achille</strong>
+              <span>5 avis</span>
+              <span class="review-badge">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Guide locale
+              </span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <a class="review-card-link fade-up"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis de Virginie sur Google Maps">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">« Monsieur Khiat est venu changer le réducteur de pression sur mon arrivée d'eau. J'ai eu un devis rapidement et il est intervenu rapidement. Il en a installé un nouveau de grande qualité. Il a pris le temps de faire une installation solide et propre. Très bon rapport qualité prix. C'est un artisan honnête, réglo et très sympathique. Je recommande ! »</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">V</div>
+            <div class="review-info">
+              <strong>Virginie Vindevoghel</strong>
+              <span>3 avis</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+    </div>
+
+    <!-- "Voir sur Google" + "Laisser un avis" buttons – Step 3 -->
+    <div class="reviews-actions">
+      <a href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer" class="btn-google" aria-label="Voir tous les avis sur Google">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Voir tous nos avis sur Google
+      </a>
+      <a href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer" class="btn-leave-review" aria-label="Laisser un avis">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Laisser un avis
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ CONTACT ═══════════════════ -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="container">
+
+    <div class="contact-header">
+      <span class="section-label">Prenez contact</span>
+      <h2 class="section-title" id="contact-title">Besoin d'un <span>plombier</span> ?</h2>
+      <p class="section-intro" style="margin-inline: auto;">Un simple appel suffit. Devis gratuit, intervention rapide, tarif juste.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+
+        <div class="contact-phone-box">
+          <p>Appelez-nous directement</p>
+          <!-- Large clickable phone – Step 3 -->
+          <a href="tel:+33601733691" class="contact-phone-link" aria-label="Appeler le 06 01 73 36 91">
+            06 01 73 36 91
+          </a>
+          <a href="tel:+33601733691" class="btn btn-white" style="justify-content:center;width:100%;">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Appeler maintenant
+          </a>
+        </div>
+
+        <div class="info-block">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            Horaires d'ouverture
+          </h3>
+          <!-- Hours table – 7j/7, aucun jour fermé -->
+          <table class="hours-table" aria-label="Horaires d'ouverture">
+            <tbody>
+              <tr><td>Lundi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Mardi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Mercredi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Jeudi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Vendredi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Samedi</td><td>09:00 – 19:00</td></tr>
+              <tr><td>Dimanche</td><td>09:00 – 19:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-block">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Adresse
+          </h3>
+          <address class="address-text" style="font-style:normal;">
+            15 Rue Willy Brandt<br>
+            92110 Clichy, France
+          </address>
+        </div>
+
+      </div>
+
+      <!-- Google Maps iframe – Step 3: border matching primary, min-height 400px -->
+      <div class="map-wrapper fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.5!2d2.30800!3d48.90700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66536dca2ee1b%3A0x0!2s15+Rue+Willy+Brandt%2C+92110+Clichy!5e0!3m2!1sfr!2sfr!4v1"
+          title="Khiat Plombier Chauffagiste – 15 Rue Willy Brandt, 92110 Clichy"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════════════ -->
+<footer class="site-footer" aria-label="Pied de page">
+  <div class="container">
+    <div class="footer-inner">
+
+      <!-- Logo – Step 6: 70px circle -->
+      <div class="footer-logo-wrap">
+        <img src="logo.png" alt="Logo Plomberie Khiat" width="70" height="70" />
+      </div>
+
+      <div class="footer-brand-text">
+        <strong>Plomberie Khiat – À votre service</strong>
+        <span>15 Rue Willy Brandt · 92110 Clichy · Lun–Dim 09h–19h</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="tel:+33601733691">+33 6 01 73 36 91</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+
+    <!-- Copyright – Step 3: <span id="year"> with JS -->
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Plomberie Khiat Chauffagiste Clichy. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile FAB – Step 4: display:none, display:flex at 700px -->
+<a href="tel:+33601733691" class="fab-phone" aria-label="Appeler Plomberie Khiat">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+</a>
+
+<!-- Step 5 — JavaScript minimal, embedded -->
+<script>
+  // Copyright year auto-update
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll-triggered fade-up animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.header-nav a');
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.style.color = '';
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.style.color = '#fff';
+          }
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(sec => secObs.observe(sec));
+</script>
+
+</body>
+</html>

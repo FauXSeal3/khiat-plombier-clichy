@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khiat Plombier Chauffagiste Clichy – Dépannage 7j/7</title>
+  <meta name="description" content="Khiat Plombier Chauffagiste à Clichy (92110). Plomberie, chauffage, réducteur de pression, dépannage urgent. Disponible 7j/7, 09h–19h. Devis gratuit. 06 01 73 36 91." />
+  <meta name="robots" content="index, follow" />
+  <!-- Outfit: modern geometric sans — NOT Inter, NOT Playfair (anti-slop rule) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Palette: deep slate + emerald (skill: "Emerald" listed as preferred accent) */
+      --bg:          #0e1520;   /* off-black, NOT pure #000 */
+      --surface:     #141c2b;
+      --surface-2:   #1b2540;
+      --surface-3:   #222f4e;
+      --em:          #059669;   /* emerald accent */
+      --em-light:    #10b981;
+      --em-pale:     rgba(5,150,105,.12);
+      --off-white:   #f0f4f8;
+      --text:        #e2e8f4;
+      --text-muted:  #7e93b5;
+      --border:      rgba(255,255,255,.07);
+      --radius:      10px;      /* ONE radius system, locked */
+      --shadow:      0 8px 32px rgba(0,0,0,.35);
+      --font:        'Outfit', system-ui, sans-serif;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img   { display: block; max-width: 100%; }
+    a     { color: inherit; text-decoration: none; }
+    .wrap { width: min(92%, 1080px); margin-inline: auto; }
+
+    /* ─── Buttons (ONE radius system) ───────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.5rem; border-radius: var(--radius);
+      font-family: var(--font); font-size: .9rem; font-weight: 600;
+      cursor: pointer; border: none; white-space: nowrap;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s;
+    }
+    /* Tactile feedback on active — skill §4.5 */
+    .btn:active { transform: translateY(1px) scale(.99); }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .btn-em    { background: var(--em); color: #fff; box-shadow: 0 4px 20px rgba(5,150,105,.35); }
+    .btn-em:hover { background: var(--em-light); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(5,150,105,.45); }
+    .btn-ghost  { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .btn-surface { background: var(--surface-2); color: var(--text); }
+    .btn-surface:hover { background: var(--surface-3); transform: translateY(-2px); }
+
+    /* ─── Fade-in on scroll ──────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .08s; }
+    .reveal-d2 { transition-delay: .16s; }
+    .reveal-d3 { transition-delay: .24s; }
+    .reveal-d4 { transition-delay: .32s; }
+
+    /* ─── HEADER ─────────────────────────────────────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(14,21,32,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding-block: .75rem;
+    }
+    /* Logo: white circle per skill */
+    .logo-link { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; }
+    .logo-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: #fff; padding: 3px; object-fit: contain; flex-shrink: 0;
+    }
+    .logo-name   { font-size: .95rem; font-weight: 700; color: var(--off-white); letter-spacing: -.01em; }
+    .logo-sub    { font-size: .7rem; color: var(--text-muted); font-weight: 400; }
+
+    nav { display: flex; align-items: center; gap: 1.75rem; }
+    nav a {
+      color: var(--text-muted); font-size: .88rem; font-weight: 500;
+      transition: color .2s; padding-bottom: 2px; border-bottom: 1.5px solid transparent;
+    }
+    nav a:hover { color: var(--off-white); border-bottom-color: var(--em); }
+
+    .header-cta {
+      display: flex; align-items: center; gap: .45rem;
+      background: var(--em); color: #fff; font-family: var(--font); font-weight: 700;
+      font-size: .88rem; padding: .55rem 1.1rem; border-radius: var(--radius);
+      transition: background .2s, transform .2s;
+    }
+    .header-cta:hover { background: var(--em-light); transform: translateY(-1px); }
+    .header-cta svg  { width: 14px; height: 14px; fill: #fff; }
+
+    /* ─── HERO — asymmetric split, left-aligned (anti-center bias) ───── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding-block: clamp(5rem, 11vw, 8rem) clamp(4rem, 9vw, 6rem);
+      background: var(--surface);
+    }
+
+    /* Real background image using Picsum (plumbing/water seed) */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(105deg, var(--surface) 48%, transparent 70%),
+        url('https://picsum.photos/seed/plumbing-pipes-water/1400/800') center/cover no-repeat;
+      opacity: 1;
+    }
+
+    .hero-grid {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: center;
+    }
+
+    /* Left col */
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--em-light); margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px; background: var(--em-light);
+      border-radius: 50%; animation: dot-pulse 2s ease infinite;
+    }
+    @keyframes dot-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.6)} }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 800;
+      color: var(--off-white); line-height: 1.06; letter-spacing: -.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 strong { color: var(--em-light); font-weight: 800; display: block; }
+
+    /* Subtext: max 20 words per skill §4.7 */
+    .hero-sub {
+      font-size: 1.05rem; color: var(--text-muted); line-height: 1.7;
+      max-width: 44ch; margin-bottom: 2rem; font-weight: 400;
+    }
+
+    /* CTAs: ONE primary intent throughout (Appelez maintenant) */
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2.5rem; }
+    .hero-actions .btn { font-size: .95rem; padding: .8rem 1.6rem; }
+
+    /* 3 stats */
+    .hero-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.5rem; border-top: 1px solid var(--border);
+    }
+    .stat-num  { font-size: 1.75rem; font-weight: 800; color: var(--em-light); line-height: 1; letter-spacing: -.02em; }
+    .stat-lbl  { font-size: .72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; margin-top: .15rem; }
+
+    /* Right col: logo floating */
+    .hero-logo-col { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .hero-logo-ring {
+      width: 200px; height: 200px; border-radius: 50%;
+      background: #fff; padding: 14px; object-fit: contain;
+      box-shadow: 0 0 0 8px rgba(255,255,255,.06), 0 0 0 16px rgba(255,255,255,.03), var(--shadow);
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+
+    .hero-phone-pill {
+      background: var(--surface-3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: .85rem 1.25rem; text-align: center; width: 100%;
+    }
+    .pill-number { font-size: 1.1rem; font-weight: 700; color: var(--em-light); display: block; }
+    .pill-hours  { font-size: .72rem; color: var(--text-muted); margin-top: .2rem; }
+
+    /* ─── TRUST STRIP (different family from hero stats) ─────────────── */
+    .trust-strip {
+      background: var(--em); padding-block: 1.1rem;
+    }
+    .trust-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: .6rem; font-size: .88rem; font-weight: 600; color: #fff; }
+    .trust-item svg { width: 18px; height: 18px; fill: rgba(255,255,255,.7); flex-shrink: 0; }
+
+    /* ─── SERVICES — bento grid (NOT 3 equal cards) ──────────────────── */
+    .services { padding-block: clamp(4rem, 8vw, 6rem); background: var(--bg); }
+
+    /* Section header: NO eyebrow here (only 1 eyebrow allowed per 3 sections, hero used it) */
+    .section-head { margin-bottom: 2.5rem; }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      color: var(--off-white); letter-spacing: -.025em; line-height: 1.15;
+    }
+    .section-head p { font-size: 1rem; color: var(--text-muted); margin-top: .6rem; max-width: 52ch; }
+
+    /* Bento: asymmetric 12-col-ish grid, NOT 3 equal cards */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: .75rem;
+    }
+
+    .s-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem; overflow: hidden; position: relative;
+      transition: transform .25s var(--ease), border-color .25s;
+    }
+    .s-card:hover { transform: translateY(-4px); border-color: rgba(5,150,105,.3); }
+
+    /* Accent left bar — ONE consistent shape system */
+    .s-card::after {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 3px; height: 100%; background: var(--em);
+      transform: scaleY(0); transform-origin: bottom; transition: transform .25s var(--ease);
+    }
+    .s-card:hover::after { transform: scaleY(1); }
+
+    /* Layout roles */
+    .s-card--lg { grid-column: span 7; }
+    .s-card--sm { grid-column: span 5; }
+    .s-card--md { grid-column: span 6; }
+    .s-card--wide { grid-column: span 12; }
+
+    /* Photo inside card */
+    .s-photo {
+      width: 100%; height: 140px; object-fit: cover;
+      border-radius: calc(var(--radius) - 2px); margin-bottom: 1.1rem;
+    }
+
+    .s-icon {
+      width: 44px; height: 44px; background: var(--em-pale);
+      border-radius: calc(var(--radius) - 2px); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; transition: background .2s;
+    }
+    .s-card:hover .s-icon { background: var(--em); }
+    .s-icon svg { width: 22px; height: 22px; fill: var(--em); transition: fill .2s; }
+    .s-card:hover .s-icon svg { fill: #fff; }
+
+    .s-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--off-white); margin-bottom: .4rem; }
+    .s-card p  { font-size: .88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* Wide card: horizontal layout */
+    .s-card--wide .s-inner { display: flex; align-items: center; gap: 2rem; }
+    .s-card--wide .s-icon  { flex-shrink: 0; width: 54px; height: 54px; margin-bottom: 0; }
+    .s-card--wide .s-text  { flex: 1; }
+
+    /* ─── REVIEWS (different layout family: horizontal + verbatim only) */
+    .reviews { padding-block: clamp(4rem, 8vw, 6rem); background: var(--surface); }
+
+    /* ONE eyebrow here (3 sections after hero = allowed) */
+    .reviews-eyebrow {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--em-light); margin-bottom: .75rem; display: block;
+    }
+    .reviews-head { margin-bottom: 2.5rem; }
+    .reviews-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      color: var(--off-white); letter-spacing: -.025em;
+    }
+    .reviews-meta { display: flex; align-items: center; gap: .75rem; margin-top: .75rem; flex-wrap: wrap; }
+    .stars { color: #fbbf24; font-size: 1rem; letter-spacing: .06em; }
+    .stars-lbl { font-size: .85rem; color: var(--text-muted); }
+
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+
+    .r-card {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.6rem;
+      transition: transform .25s var(--ease), border-color .25s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .r-card:hover { transform: translateY(-4px); border-color: rgba(5,150,105,.3); }
+
+    /* Quote: max 3 lines per skill §4.10 */
+    .r-quote {
+      font-size: .93rem; color: var(--text); line-height: 1.65; font-style: italic;
+      margin-bottom: 1.25rem;
+      /* Real typographic quotes — skill §4.10 */
+    }
+    .r-footer { display: flex; align-items: center; gap: .65rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    /* Avatar: initial letter, NOT generic SVG egg — skill §9.D */
+    .r-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--surface-3), var(--em));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .r-name   { font-size: .88rem; font-weight: 600; color: var(--off-white); }
+    .r-meta   { font-size: .75rem; color: var(--text-muted); margin-top: .1rem; }
+    .r-badge  {
+      display: inline-flex; align-items: center; gap: .25rem;
+      background: rgba(5,150,105,.15); color: var(--em-light);
+      font-size: .68rem; font-weight: 600; padding: .15rem .5rem;
+      border-radius: calc(var(--radius) - 4px); margin-top: .2rem;
+    }
+
+    /* Google CTA row */
+    .reviews-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn-google {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .65rem 1.3rem; background: #fff; border: 1.5px solid #dadce0;
+      border-radius: var(--radius); font-family: var(--font); font-size: .88rem; font-weight: 600;
+      color: #3c4043; transition: box-shadow .2s, transform .2s;
+    }
+    .btn-google:hover { box-shadow: 0 2px 12px rgba(0,0,0,.15); transform: translateY(-2px); }
+    .btn-google svg   { width: 16px; height: 16px; }
+
+    /* ─── PROCESS — 3-step (layout family 3 = different from services bento) */
+    .process { padding-block: clamp(4rem, 8vw, 6rem); background: var(--bg); }
+    .process-head { margin-bottom: 2.5rem; }
+    .process-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      color: var(--off-white); letter-spacing: -.025em;
+    }
+
+    /* Steps: horizontal with connecting line (NOT a "Stage 1/2/3" label — skill §9.F) */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; position: relative; }
+    .steps::before {
+      content: ''; position: absolute; top: 26px; left: calc(16.67% + 26px); right: calc(16.67% + 26px);
+      height: 1px; background: var(--border); z-index: 0;
+    }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--surface-2); border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+      font-size: 1.25rem; font-weight: 800; color: var(--em-light);
+      transition: background .2s, border-color .2s;
+    }
+    .step:hover .step-num { background: var(--em-pale); border-color: var(--em); }
+    .step h3 { font-size: .95rem; font-weight: 700; color: var(--off-white); margin-bottom: .35rem; }
+    .step p  { font-size: .85rem; color: var(--text-muted); line-height: 1.6; max-width: 22ch; margin-inline: auto; }
+
+    /* ─── CONTACT (layout family 4) ────────────────────────────────── */
+    .contact { padding-block: clamp(4rem, 8vw, 6rem); background: var(--surface); }
+
+    /* Header: vertical stack, no split-header (banned per skill §4.7) */
+    .contact-head { margin-bottom: 2.5rem; }
+    .contact-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      color: var(--off-white); letter-spacing: -.025em;
+    }
+    .contact-head p { font-size: 1rem; color: var(--text-muted); margin-top: .6rem; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+
+    .c-left { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .phone-box {
+      background: linear-gradient(135deg, var(--surface-2), var(--surface-3));
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; text-align: center;
+    }
+    .phone-label { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: .5rem; }
+    /* Large clickable phone */
+    .phone-num {
+      display: block; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800;
+      color: var(--em-light); letter-spacing: -.02em; margin-bottom: 1.25rem;
+      transition: color .2s;
+    }
+    .phone-num:hover { color: #fff; }
+
+    .info-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; }
+    .info-card-title {
+      font-size: .85rem; font-weight: 600; color: var(--off-white); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .info-card-title svg { width: 16px; height: 16px; fill: var(--em); flex-shrink: 0; }
+
+    /* Hours table */
+    .hours { width: 100%; border-collapse: collapse; }
+    .hours td { padding: .38rem 0; font-size: .85rem; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .hours tr:last-child td { border-bottom: none; }
+    .hours td:first-child { font-weight: 600; color: var(--text); }
+    .hours td:last-child { text-align: right; color: var(--em-light); font-weight: 600; }
+    .hours .closed { color: #f87171 !important; }
+
+    .addr { font-size: .88rem; color: var(--text-muted); line-height: 1.7; font-style: normal; }
+
+    /* Map: border matching primary color per skill */
+    .map-wrap {
+      border-radius: var(--radius); overflow: hidden; border: 2px solid var(--surface-3);
+      box-shadow: var(--shadow); min-height: 440px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; min-height: 440px; border: none; display: block; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--bg); border-top: 1px solid var(--border); padding-block: 2.5rem;
+    }
+    .footer-row {
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem;
+    }
+    /* Logo: 70px circle per skill */
+    .footer-logo {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: #fff; padding: 4px; object-fit: contain; display: block;
+    }
+    .footer-brand-name { font-size: 1rem; font-weight: 700; color: var(--off-white); }
+    .footer-brand-sub  { font-size: .78rem; color: var(--text-muted); margin-top: .15rem; }
+    .footer-links { display: flex; flex-direction: column; gap: .35rem; text-align: right; }
+    .footer-links a, .footer-links span { font-size: .82rem; color: var(--text-muted); transition: color .2s; }
+    .footer-links a:hover { color: var(--em-light); }
+    .footer-copy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border); text-align: center; font-size: .76rem; color: var(--text-muted); }
+
+    /* ─── MOBILE FAB (display:none → display:flex at 700px) ──────────── */
+    .fab {
+      display: none; position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--em); box-shadow: 0 6px 24px rgba(5,150,105,.5);
+      align-items: center; justify-content: center;
+      animation: fab-bounce 2.5s ease infinite;
+    }
+    .fab svg { width: 24px; height: 24px; fill: #fff; }
+    @keyframes fab-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+    /* ─── RESPONSIVE (900px, 700px, 480px) ──────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-logo-col { flex-direction: row; justify-content: flex-start; }
+      .hero-logo-ring { width: 120px; height: 120px; }
+      .hero-phone-pill { width: auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .map-wrap { min-height: 300px; }
+      .map-wrap iframe { min-height: 300px; }
+      .footer-row { grid-template-columns: auto 1fr; }
+      .footer-links { display: none; }
+      .steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .bento { grid-template-columns: 1fr; }
+      .s-card--lg, .s-card--sm, .s-card--md, .s-card--wide { grid-column: span 1; }
+      .s-card--wide .s-inner { flex-direction: column; gap: 1rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      nav { display: none; }
+      .fab { display: flex; }
+      .footer-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-logo-col { display: none; }
+      .trust-row { gap: 1rem; }
+    }
+
+    /* Reduced motion — skill §6.B */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .fab, .hero-logo-ring { animation: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-row">
+
+      <a href="#hero" class="logo-link" aria-label="Plomberie Khiat - Accueil">
+        <img src="logo.png" alt="Logo Plomberie Khiat" class="logo-circle" width="48" height="48" />
+        <div>
+          <div class="logo-name">Plomberie Khiat</div>
+          <div class="logo-sub">Chauffagiste · Clichy 92</div>
+        </div>
+      </a>
+
+      <!-- Navigation on ONE line — skill §4.7 -->
+      <nav aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#reviews">Avis</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- ONE CTA label throughout: Appelez maintenant — skill §4.5 -->
+      <a href="tel:+33601733691" class="header-cta" aria-label="Appeler Plomberie Khiat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+        06 01 73 36 91
+      </a>
+
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════ HERO ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- Left: text + CTAs — LEFT-ALIGNED (anti-center bias) -->
+      <div>
+        <!-- ONE eyebrow for the page here — max 1 per 3 sections -->
+        <div class="hero-eyebrow">Clichy &amp; alentours · Disponible 7j/7</div>
+
+        <!-- h1: max 2 lines, not 4 — skill §4.7 -->
+        <h1>
+          Plombier Chauffagiste
+          <strong>à Clichy</strong>
+        </h1>
+
+        <!-- Subtext: max 20 words — skill §4.7 -->
+        <p class="hero-sub">
+          Artisan réactif, honnête et qualifié. Interventions rapides pour tous vos travaux de plomberie et chauffage.
+        </p>
+
+        <!-- CTAs: primary + one secondary — skill §4.5 no duplicate intent -->
+        <div class="hero-actions">
+          <a href="tel:+33601733691" class="btn btn-em" aria-label="Appeler maintenant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Appelez maintenant
+          </a>
+          <a href="#services" class="btn btn-ghost">Voir nos services</a>
+        </div>
+
+        <!-- 3 trust stats -->
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">7j/7</div>
+            <div class="stat-lbl">Disponible</div>
+          </div>
+          <div>
+            <div class="stat-num">5★</div>
+            <div class="stat-lbl">Note Google</div>
+          </div>
+          <div>
+            <div class="stat-num">Gratuit</div>
+            <div class="stat-lbl">Devis</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: logo floating — skill §6 (180-220px, white bg, float) -->
+      <div class="hero-logo-col">
+        <img src="logo.png" alt="Plomberie Khiat - À votre service" class="hero-logo-ring" width="200" height="200" />
+        <div class="hero-phone-pill">
+          <a href="tel:+33601733691" class="pill-number" aria-label="+33 6 01 73 36 91">+33 6 01 73 36 91</a>
+          <div class="pill-hours">Lun–Dim · 09h00–19h00</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ TRUST STRIP (layout family 2) ══════ -->
+<div class="trust-strip" aria-label="Points clés">
+  <div class="wrap">
+    <div class="trust-row">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+        Intervention rapide
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+        Devis gratuit
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        Tarif juste &amp; transparent
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Artisan qualifié
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SERVICES — bento grid ═════════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+
+    <!-- NO eyebrow here (2nd section, quota used in hero) -->
+    <div class="section-head reveal">
+      <h2>Nos prestations</h2>
+      <p>Plomberie, chauffage, dépannage — à Clichy et ses environs, du lundi au dimanche.</p>
+    </div>
+
+    <!-- Bento: asymmetric, NOT 3 equal cards — skill §9.C -->
+    <div class="bento">
+
+      <!-- Large card with photo -->
+      <article class="s-card s-card--lg reveal">
+        <img src="https://picsum.photos/seed/plumbing-pipes-blue/700/160" alt="Travaux de plomberie générale" class="s-photo" width="700" height="160" loading="lazy" />
+        <div class="s-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 7h-2V4h-3V2h-2v2h-3v3H9V4H7V2H5v2H2v3H0v2h2v3h2v-3h3v3h2V7h3V4h3v3h3v3h2V9h2V7z"/></svg></div>
+        <h3>Plomberie générale</h3>
+        <p>Fuites, robinetterie, tuyauterie, débouchage. Interventions soignées et durables sur tous types d'installations.</p>
+      </article>
+
+      <article class="s-card s-card--sm reveal reveal-d1">
+        <div class="s-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg></div>
+        <h3>Chauffage &amp; chaudière</h3>
+        <p>Installation, entretien et dépannage. Chaudières gaz et fioul, radiateurs, plancher chauffant.</p>
+      </article>
+
+      <article class="s-card s-card--sm reveal reveal-d2">
+        <div class="s-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 14h2v2h-2v-2zm0-8h2v6h-2V8z"/></svg></div>
+        <h3>Réducteur de pression</h3>
+        <p>Diagnostic, fourniture et pose de réducteurs de haute qualité. Installation propre et pérenne.</p>
+      </article>
+
+      <article class="s-card s-card--lg reveal reveal-d1">
+        <img src="https://picsum.photos/seed/heating-system-boiler/700/160" alt="Dépannage urgence plomberie" class="s-photo" width="700" height="160" loading="lazy" />
+        <div class="s-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg></div>
+        <h3>Dépannage urgent</h3>
+        <p>Fuite, panne de chaudière, eau chaude en panne ? On intervient rapidement 7 jours sur 7.</p>
+      </article>
+
+      <!-- Wide card: horizontal layout -->
+      <article class="s-card s-card--wide reveal">
+        <div class="s-inner">
+          <div class="s-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2z"/></svg>
+          </div>
+          <div class="s-text">
+            <h3>Installation sanitaire</h3>
+            <p>Pose et raccordement de baignoires, douches, WC, lavabos. Rénovation complète de salle de bain.</p>
+          </div>
+          <a href="tel:+33601733691" class="btn btn-em" style="flex-shrink:0;" aria-label="Appeler maintenant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Devis gratuit
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ REVIEWS ═════════════════════ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+
+    <div class="reviews-head reveal">
+      <!-- ONE eyebrow here: 4th section after hero, allowed -->
+      <span class="reviews-eyebrow">Avis clients vérifiés</span>
+      <h2>Ils nous font confiance</h2>
+      <div class="reviews-meta">
+        <span class="stars" aria-label="Note 5 sur 5">★★★★★</span>
+        <span class="stars-lbl">5/5 sur Google Maps</span>
+      </div>
+    </div>
+
+    <!-- 3 review cards — verbatim only, max 3 lines each — skill §4.10 -->
+    <div class="reviews-grid">
+
+      <!-- Card links to Google Maps — skill §3 reviews -->
+      <a class="r-card reveal"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis d'Arthur sur Google Maps">
+        <div class="review-stars" style="color:#fbbf24;font-size:.95rem;margin-bottom:.85rem;">★★★★★</div>
+        <!-- Typographic quotes — skill §4.10, max 3 lines -->
+        <p class="r-quote">"Professionnel réactif, travail nickel, au juste prix. Je recommande vivement."</p>
+        <div class="r-footer">
+          <!-- Initial letter avatar — NOT generic egg — skill §9.D -->
+          <div class="r-avatar" aria-hidden="true">A</div>
+          <div>
+            <div class="r-name">Arthur</div>
+            <div class="r-meta">64 avis</div>
+            <span class="r-badge">
+              <svg viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Guide local
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a class="r-card reveal reveal-d1"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis d'Anne-Laure sur Google Maps">
+        <div class="review-stars" style="color:#fbbf24;font-size:.95rem;margin-bottom:.85rem;">★★★★★</div>
+        <p class="r-quote">"Personne agréable, toujours disponible rapidement. Professionnel, clair et ponctuel. Tout fonctionne parfaitement. À recommander !"</p>
+        <div class="r-footer">
+          <div class="r-avatar" aria-hidden="true">A</div>
+          <div>
+            <div class="r-name">Anne-Laure Achille</div>
+            <div class="r-meta">5 avis</div>
+            <span class="r-badge">
+              <svg viewBox="0 0 24 24" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Guide locale
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a class="r-card reveal reveal-d2"
+         href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Voir l'avis de Virginie sur Google Maps">
+        <div class="review-stars" style="color:#fbbf24;font-size:.95rem;margin-bottom:.85rem;">★★★★★</div>
+        <p class="r-quote">"Réducteur de pression changé rapidement. Devis rapide, installation solide et propre. Très bon rapport qualité prix. Artisan honnête et sympathique !"</p>
+        <div class="r-footer">
+          <div class="r-avatar" aria-hidden="true">V</div>
+          <div>
+            <div class="r-name">Virginie Vindevoghel</div>
+            <div class="r-meta">3 avis</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Google CTAs — skill §3 reviews -->
+    <div class="reviews-actions reveal">
+      <a href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer" class="btn-google" aria-label="Voir tous les avis sur Google">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Tous nos avis Google
+      </a>
+      <a href="https://www.google.com/maps/place/Khiat+Plombier+Chauffagiste+Clichy/data=!4m2!3m1!1s0x0:0xd3d3d52da786e256?sa=X&ved=1t:2428&ictx=111"
+         target="_blank" rel="noopener noreferrer" class="btn btn-surface" aria-label="Laisser un avis">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        Laisser un avis
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ PROCESS (layout family 3) ════════ -->
+<section class="process" id="process">
+  <div class="wrap">
+
+    <div class="process-head reveal">
+      <!-- NO eyebrow: quota used -->
+      <h2>Comment ca se passe</h2>
+    </div>
+
+    <!-- Steps: named by verb-noun, NOT "Stage 1 / 2 / 3" — skill §9.F -->
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3>Vous appelez</h3>
+        <p>Un simple appel au 06 01 73 36 91. Diagnostic rapide, devis immédiat.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>On intervient</h3>
+        <p>Déplacement rapide à Clichy et alentours. Matériel professionnel embarqué.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>Travail soigne</h3>
+        <p>Installation propre, solide et durable. Vous ne payez que ce qui était convenu.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CONTACT (layout family 4) ═══════ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+
+    <div class="contact-head reveal">
+      <!-- Vertical stack, NOT split-header — skill §4.7 -->
+      <h2>Contactez-nous</h2>
+      <p>Devis gratuit, intervention rapide, tarif juste. Disponible tous les jours.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="c-left">
+
+        <div class="phone-box reveal">
+          <div class="phone-label">Appelez directement</div>
+          <!-- Large clickable phone — skill -->
+          <a href="tel:+33601733691" class="phone-num" aria-label="06 01 73 36 91">06 01 73 36 91</a>
+          <a href="tel:+33601733691" class="btn btn-em" style="width:100%;justify-content:center;" aria-label="Appeler maintenant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Appelez maintenant
+          </a>
+        </div>
+
+        <div class="info-card reveal reveal-d1">
+          <div class="info-card-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            Horaires
+          </div>
+          <table class="hours" aria-label="Horaires d'ouverture">
+            <tr><td>Lundi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Mardi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Mercredi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Jeudi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Vendredi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Samedi</td><td>09:00 - 19:00</td></tr>
+            <tr><td>Dimanche</td><td>09:00 - 19:00</td></tr>
+          </table>
+        </div>
+
+        <div class="info-card reveal reveal-d2">
+          <div class="info-card-title">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Adresse
+          </div>
+          <address class="addr">15 Rue Willy Brandt<br>92110 Clichy, France</address>
+        </div>
+
+      </div>
+
+      <!-- Google Maps iframe — border matching primary -->
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.5!2d2.30800!3d48.90700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66536dca2ee1b%3A0x0!2s15+Rue+Willy+Brandt%2C+92110+Clichy!5e0!3m2!1sfr!2sfr!4v1"
+          title="Khiat Plombier Chauffagiste - 15 Rue Willy Brandt 92110 Clichy"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FOOTER ═════════════ -->
+<footer class="site-footer" aria-label="Pied de page">
+  <div class="wrap">
+    <div class="footer-row">
+
+      <!-- Logo: 68px circle — skill §6 -->
+      <img src="logo.png" alt="Logo Plomberie Khiat" class="footer-logo" width="68" height="68" />
+
+      <div>
+        <div class="footer-brand-name">Plomberie Khiat</div>
+        <div class="footer-brand-sub">15 Rue Willy Brandt · 92110 Clichy · Lun-Dim 09h-19h</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="tel:+33601733691">+33 6 01 73 36 91</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+
+    <!-- Copyright: auto-updating year via JS — skill -->
+    <div class="footer-copy">
+      <p>&copy; <span id="yr"></span> Plomberie Khiat Chauffagiste Clichy. Tous droits reserves.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile FAB: display:none -> display:flex at 700px — skill §4 -->
+<a href="tel:+33601733691" class="fab" aria-label="Appeler Plomberie Khiat">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+</a>
+
+<!-- JS — minimal, embedded — skill §5 -->
+<script>
+  // Auto-updating copyright year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll-reveal (IntersectionObserver, no window.scroll listener — skill §5.D)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Active nav highlight on scroll (IntersectionObserver, NOT window.scroll)
+  const secs = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav a');
+  const sio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => { l.style.color = ''; l.style.borderBottomColor = ''; });
+        const match = document.querySelector('nav a[href="#' + e.target.id + '"]');
+        if (match) { match.style.color = 'var(--off-white)'; match.style.borderBottomColor = 'var(--em)'; }
+      }
+    });
+  }, { threshold: 0.4 });
+  secs.forEach(s => sio.observe(s));
+</script>
+
+</body>
+</html>
